@@ -4,17 +4,18 @@ import { USState } from '../models/state';
 
 @Injectable()
 export class StateApiService {
-  // USSTATES: USState[];
+  // STATES: USState;
+  states: any;
 
   constructor(private http: HttpClient) { }
 
   getStates() {
-  return this.http.get<any>('https://united-states-database.herokuapp.com/states/')
-    .toPromise()
-    .then(res => <USState[]>res.states)
-    .then(data => {
-      // this.USSTATES = data;
-      return data;
-    });
+    // return this.http.get<any>('https://united-states-database.herokuapp.com/states/')
+    return this.http.get<any>('http://localhost:3000/states/')
+      .toPromise()
+      .then(data => {
+        const USSTATES = data.states;
+        return USSTATES;
+      });
   }
 }

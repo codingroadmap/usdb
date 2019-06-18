@@ -1,3 +1,7 @@
+<div class="text-center">
+  <h1>DataTable</h1>
+  <h2>Bootstrap &amp; rxjs</h2>
+</div>
 <form>
   <div class="form-group form-inline">
     Full text search: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm"/>
@@ -9,7 +13,6 @@
       <th scope="col">#</th>
       <th scope="col">Flag</th>
       <th scope="col" sortable="name" (sort)="onSort($event)">State</th>
-      <!-- <th scope="col" sortable="area" (sort)="onSort($event)">Area</th> -->
       <th scope="col" sortable="population" (sort)="onSort($event)">Population</th>
       <th scope="col" sortable="avg_income" (sort)="onSort($event)">Median Income</th>
       <th scope="col" sortable="gdp" (sort)="onSort($event)">GDP Per Capita</th>
@@ -21,7 +24,6 @@
       <th scope="row">{{ state.id }}</th>
       <td><img [src]="state.flag" class="mr-2" style="height: 50px"></td>
       <td><ngb-highlight [result]="state.name" [term]="service.searchTerm"></ngb-highlight></td>
-      <!-- <td><ngb-highlight [result]="state.area | number" [term]="service.searchTerm"></ngb-highlight></td> -->
       <td><ngb-highlight [result]="state.population | number" [term]="service.searchTerm"></ngb-highlight></td>
       <td><ngb-highlight [result]="state.avg_income | currency: '$'" [term]="service.searchTerm"></ngb-highlight></td>
       <td><ngb-highlight [result]="state.gdp | currency: '$'" [term]="service.searchTerm"></ngb-highlight></td>

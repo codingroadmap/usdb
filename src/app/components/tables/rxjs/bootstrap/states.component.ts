@@ -1,11 +1,11 @@
 import { DecimalPipe } from '@angular/common';
-import { Component, QueryList, ViewChildren } from '@angular/core';
+import { Component, QueryList, ViewChildren, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { USState } from '../../models/state';
-import { USStateService } from '../../services/states.service';
-import { StateApiService } from '../../services/states-api.service';
-import { NgbdSortableHeader, SortEvent } from '../../directives/sortable.directive';
+import { USState } from '../../../../models/state';
+import { USStateService } from '../../../../services/rxjs/states.service';
+import { StateApiService } from '../../../../services/states-api.service';
+import { NgbdSortableHeader, SortEvent } from '../../../../directives/sortable.directive';
 
 @Component({
   selector: 'app-states-table',
@@ -16,15 +16,24 @@ import { NgbdSortableHeader, SortEvent } from '../../directives/sortable.directi
     DecimalPipe
   ]
 })
-export class StatesTableComponent {
+export class StatesTableComponent implements OnInit {
   usStates$: Observable<USState[]>;
   total$: Observable<number>;
 
   @ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader>;
 
-  constructor(public service: USStateService) {
+  constructor(
+    public service: USStateService,
+    public apiService: StateApiService
+  ) {
     this.usStates$ = service.usStates$;
     this.total$ = service.total$;
+  }
+
+  ngOnInit() {
+    this.apiService.getStates().then(data => {
+      console.log(data);
+    });
   }
 
   onSort({ column, direction }: SortEvent) {

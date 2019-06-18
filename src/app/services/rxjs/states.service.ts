@@ -1,17 +1,16 @@
-import { Injectable, PipeTransform } from '@angular/core';
+import { Injectable, PipeTransform, OnInit } from '@angular/core';
 
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 
-import { USState } from '../models/state';
-// import { USSTATES } from './states-api.service';
-import { USSTATES } from '../../data/states';
+import { USState } from '../../models/state';
+import { StateApiService } from '../states-api.service';
+import { USSTATES } from '../../../data/states';
 import { DecimalPipe } from '@angular/common';
 import { debounceTime, delay, switchMap, tap } from 'rxjs/operators';
-import { SortDirection } from '../directives/sortable.directive';
+import { SortDirection } from '../../directives/sortable.directive';
 
 interface SearchResult {
-  // usStates: USState[];
-  usStates: any;
+  usStates: USState[];
   total: number;
 }
 
@@ -45,7 +44,7 @@ function matches(usState: USState, term: string, pipe: PipeTransform) {
 }
 
 @Injectable({ providedIn: 'root' })
-export class USStateService {
+export class USStateService implements OnInit {
   private _loading$ = new BehaviorSubject<boolean>(true);
   private _search$ = new Subject<void>();
   private _usStates$ = new BehaviorSubject<USState[]>([]);
@@ -59,7 +58,10 @@ export class USStateService {
     sortDirection: ''
   };
 
-  constructor(private pipe: DecimalPipe) {
+  constructor(
+    private pipe: DecimalPipe,
+    private stateService: StateApiService
+  ) {
     this._search$.pipe(
       tap(() => this._loading$.next(true)),
       debounceTime(200),
@@ -72,6 +74,13 @@ export class USStateService {
     });
 
     this._search$.next();
+  }
+
+  ngOnInit() {
+    // this.stateService.getStates().then(data => {
+    //   console.log(data);
+    //   this.USSTATES = data;
+    // });
   }
 
   get usStates$() { return this._usStates$.asObservable(); }

@@ -1,6 +1,8 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from '../app/home/home.component';
 import { StatesTableComponent } from '../app/components/tables/rxjs/bootstrap/states.component';
+import { StatesSubscribeTable } from './components/tables/subscribe/bootstrap/states.component';
+import { StatesSubscribeMaterial } from './components/tables/subscribe/material/states.component';
 
 export const AppRoutes: Routes = [
   // {
@@ -19,6 +21,14 @@ export const AppRoutes: Routes = [
   {
     path: 'rxjs/bootstrap/states',
     component: StatesTableComponent
+  },
+  {
+    path: 'subscription/bootstrap/states',
+    component: StatesSubscribeTable
+  },
+  {
+    path: 'subscription/material/states',
+    component: StatesSubscribeMaterial
   }
 ];
 

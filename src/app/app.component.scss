@@ -2,3 +2,15 @@
   max-width: 100vw;
   padding: 80px 100px 50px 100px;
 }
+
+.table th {
+  vertical-align: middle;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+table.mat-table {
+  width: 100%;
+}

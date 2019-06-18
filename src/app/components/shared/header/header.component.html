@@ -1,7 +1,7 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
   <div class="spread-header">
     <div class="header-branding">
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand" routerLink="/">
         <img src="/assets/Angular-Logo-Transparent.png" width="30" height="30" class="d-inline-block align-top" alt="">
         Toolbox
       </a>
@@ -12,25 +12,25 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
+          <li routerLinkActive="active" class="nav-item">
+            <a class="nav-link" routerLink="/">Home<span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">API Calls</a>
+          <li routerLinkActive="active" class="nav-item">
+            <a class="nav-link" routerLink="/">API Calls</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">UI Libraries</a>
+          <li routerLinkActive="active" class="nav-item">
+            <a class="nav-link" routerLink="/">UI Libraries</a>
           </li>
-          <!-- <li class="nav-item dropdown">
+          <li routerLinkActive="active" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown link
+              Subscription
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" routerLink="/subscription/bootstrap/states">Bootstrap</a>
+              <a class="dropdown-item" routerLink="/subscription/material/states">Material</a>
+              <a class="dropdown-item" routerLink="#">Something else here</a>
             </div>
-          </li> -->
+          </li>
         </ul>
       </div>
     </div>

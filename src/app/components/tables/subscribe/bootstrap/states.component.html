@@ -1,0 +1,45 @@
+<div class="text-center">
+  <h1>DataTable</h1>
+  <h2>Bootstrap &amp; Subscription</h2>
+</div>
+<br>
+<form>
+  <!-- <div class="form-group form-inline">
+    Full text search: <input class="form-control ml-2" type="text" name="searchTerm" [(ngModel)]="service.searchTerm"/>
+    <span class="ml-3" *ngIf="service.loading$ | async">Loading...</span>
+  </div> -->
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Flag</th>
+      <th scope="col" sortable="name">State</th>
+      <th scope="col" sortable="population">Population</th>
+      <th scope="col" sortable="avg_income">Median Income</th>
+      <th scope="col" sortable="gdp">GDP Per Capita</th>
+      <th scope="col" sortable="cost_of_living">Cost of Living</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let state of states">
+      <th scope="row">{{ state.id }}</th>
+      <td><img [src]="state.flag" class="mr-2" style="height: 50px"></td>
+      <td><ngb-highlight [result]="state.name"></ngb-highlight></td>
+      <td><ngb-highlight [result]="state.population | number"></ngb-highlight></td>
+      <td><ngb-highlight [result]="state.avg_income | currency: '$'"></ngb-highlight></td>
+      <td><ngb-highlight [result]="state.gdp | currency: '$'"></ngb-highlight></td>
+      <td><ngb-highlight [result]="state.cost_of_living | number"></ngb-highlight></td>
+    </tr>
+    </tbody>
+  </table>
+  <!-- <div class="d-flex justify-content-between p-2">
+    <ngb-pagination
+      [collectionSize]="total$ | async" [(page)]="service.page" [pageSize]="service.pageSize">
+    </ngb-pagination>
+    <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
+      <option [ngValue]="5">5 items per page</option>
+      <option [ngValue]="10">10 items per page</option>
+      <option [ngValue]="20">20 items per page</option>
+    </select>
+  </div> -->
+</form>

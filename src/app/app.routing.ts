@@ -3,6 +3,7 @@ import { HomeComponent } from '../app/home/home.component';
 import { StatesTableComponent } from '../app/components/tables/rxjs/bootstrap/states.component';
 import { StatesSubscribeTable } from './components/tables/subscribe/bootstrap/states.component';
 import { StatesSubscribeMaterial } from './components/tables/subscribe/material/states.component';
+import { StatePromisePrimeNG } from './components/tables/subscribe/primeng/states.component';
 
 export const AppRoutes: Routes = [
   // {
@@ -29,6 +30,10 @@ export const AppRoutes: Routes = [
   {
     path: 'subscription/material/states',
     component: StatesSubscribeMaterial
+  },
+  {
+    path: 'promise/primeng/states',
+    component: StatePromisePrimeNG
   }
 ];
 

@@ -16,6 +16,11 @@ import { MaterialBundleModule } from './material-bundle.module';
 import { GraphQLModule } from './graphql.module';
 import { StatesSubscribeTable } from './components/tables/subscribe/bootstrap/states.component';
 import { StatesSubscribeMaterial } from './components/tables/subscribe/material/states.component';
+import { DataViewModule } from 'primeng/dataview';
+import { StatePromisePrimeNG } from './components/tables/subscribe/primeng/states.component';
+import { DataGridModule } from 'primeng/datagrid';
+import { PanelModule } from 'primeng/panel';
+import { DialogModule } from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -25,18 +30,23 @@ import { StatesSubscribeMaterial } from './components/tables/subscribe/material/
     StatesTableComponent,
     StatesSubscribeTable,
     StatesSubscribeMaterial,
+    StatePromisePrimeNG,
     NgbdSortableHeader
   ],
   imports: [
     BrowserModule,
     CommonModule,
-    RouterModule.forRoot(AppRoutes, {onSameUrlNavigation: 'reload'}),
+    RouterModule.forRoot(AppRoutes, { onSameUrlNavigation: 'reload' }),
     FormsModule,
     ReactiveFormsModule,
     NgbModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialBundleModule,
+    DataViewModule,
+    DataGridModule,
+    PanelModule,
+    DialogModule,
     GraphQLModule
   ],
   exports: [
